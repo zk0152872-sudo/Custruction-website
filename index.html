@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSTRUCTION</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+        font-family: sans-serif;
+    }
+    header{
+        width: 100%;
+        height: 100vh;
+        background-image: url(img/timber-2048.avif);
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        
+    }
+    .over{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.603);
+        z-index: -1;
+    }
+    li a{
+        text-decoration: none;
+        color: white;
+
+    }
+    li a:hover{
+        color: #FAB704;
+
+    }
+    .text{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        text-transform: uppercase;
+
+    }
+    .text button{
+        height: 50px;
+        width: 250px;
+        border: none;
+        border-radius: 20px;
+        background-color: #FAB700;
+        color: black;    
+        font-size: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s linear;
+    }
+    .text button:hover{
+       
+        background-color: rgba(0, 0, 0, 0.26);
+        color: white;
+        cursor: pointer;
+    }
+    .text h3,h2,p,button{
+        margin-top: 20px;
+    }
+    .text h2{
+        font-size: 90px;
+    }
+    .text h3{
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+    .text p{
+        width: 70%;
+        font-size: 15px;
+        text-align: center;
+        line-height: 2;
+    }
+
+    header nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 70px;
+        background-color: rgba(0, 0, 0, 0.664);
+
+    }
+    nav ul{
+        display: flex;
+        align-items: end;
+        gap: 25px;
+        font-size: 15px;
+
+    }
+    nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-transform: uppercase;
+    }
+    nav h1{
+        margin-left: -10px;
+        color: white;
+    }
+    .icon{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .icon1{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #F8F8FC;
+        margin-top: 100px;
+        padding: 50px;
+
+
+    }
+    .icon1:hover{
+        box-shadow: 5px 5px 10px rgb(122, 122, 122);
+    }
+    .icon1 i{
+        color: #876200;
+        font-size: 45px;
+        margin-bottom: 10px;
+    }
+    .hedimg{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 100px;
+
+    }
+    .hedimg h3{
+        color: #755429;
+
+    }
+    .hedimg h2{
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+    .card{
+        width: 100%;
+        height: 500px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items:center;
+    }
+    .card1{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+        background-color: #F8F8FC;
+
+    }
+    .card1 img{
+        width: 100%;
+        height: 60%;
+        object-fit: cover;
+        margin-top: -70px;
+    }
+    .card1 a{
+        text-decoration: none;
+        color: #5C4200;
+        font-weight: bold;
+    }
+    .card1 p{
+        margin: 20px;
+        text-align: center;
+        color: #5B5E63;
+    }
+    .scroll{
+        width: 100%;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        
+    }
+    .scroll1{
+        width: 23%;
+        height: 100%;
+        position: relative;
+        display: block;
+        overflow: hidden;
+    }
+    .scroll1 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .scroll2{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(-100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #fab700c5;
+        padding: 25px;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        overflow: hidden;
+        transition: transform 0.6s linear;
+    }
+    .scroll1:hover .scroll2{
+        transform: translateY(0);
+    
+
+    }
+    .scroll2 a{
+        text-decoration: none;
+        color: white;
+        margin-top: 20px;
+    }
+    .ul{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #FAB700;
+        margin-top: 50px;
+    }
+    .ul1 ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        gap: 30px;
+        margin-top: 10px;
+    }
+    .ul2 ul{
+        font-weight:900;
+        font-size: 45px;
+        display: flex;
+        gap: 170px;
+    }
+    .hading{
+        width:  100%;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+    .table{
+        margin-top: 50px;
+    }
+    .table table{
+        width: 100%;
+        height: 500px;
+    }
+    td{
+      width: 50px;
+      height: 50px;
+      background-color: #F8F8FC;
+      text-align: center;
+      
+
+    }
+     tr td i{
+        font-size: 35px;
+        color: #876200;
+        margin-bottom: 10px;
+    }
+    tr td:hover{
+        background-color: rgba(65, 64, 64, 0.692);
+        color: white;
+    }
+    .form{
+        width: 100%;
+        height: 850px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .h{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 50px;
+        font-size: 20px;
+        font-weight:bolder;
+    }
+    .fom{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 50px;
+        margin-left: -50px;
+    }
+    .row1{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .row1 .item1 input{
+          height: 45px;
+          width: 350px;
+
+    }
+    .row2{
+
+        margin-left: -20px;
+        margin-top: -15px;
+    }
+    .row2 input{
+        width: 350px;
+        height: 45px;
+    }
+    textarea{
+        width: 400px;
+        height: 150px;
+        
+    }
+    .row3,.row4{
+        margin-left: -105px;
+        margin-top: -20px;
+    }
+    footer{
+        width: 100%;
+        height: 500px;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: white;
+    }
+    footer ul{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    footer ul li{
+        font-weight: lighter;
+    }
+   footer ul li:hover{
+    color: #FAB700;
+   }
+
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Construction</h1>
+         <ul>
+         <li><a href="">Home</a></li>
+         <li><a href="">About</a></li>
+         <li><a href="">Services</a></li>
+         <li><a href="">Projects</a></li>
+         <li><a href="">Resources</a></li>
+         <li><a href="#">Contact</a></li>
+         </ul>
+        </nav>
+        <div class="over"></div>
+        <div class="text">
+
+        <h3>Thoughtful planning. Lasting spaces.</h3>
+            <h2>Build Your Dream</h2>
+            <p>From the first sketch to the final detail. Bring your ideas into focus with a practical approach to building and renovation.</p>
+            <button>Explore our approach<i class="fa-solid fa-arrow-right-long"></i></button>
+        </div>
+    </header>
+    <div class="icon">
+        <div class="icon1">
+            <i class="fa-solid fa-ruler"></i>
+            <h3>Pre-construction</h3>
+            <p>A clear brief, measured information and an agreed sequence before work begins.</p>
+            <hr>
+
+        </div>
+        <div class="icon1">
+            <i class="fa-solid fa-hammer"></i>
+            <h3>Building & renovation</h3>
+            <p>Coordinate structure, services and finishes around an achievable scope.</p>
+            <hr>
+        </div>
+        <div class="icon1">
+            <i class="fa-solid fa-paint-roller"></i>
+            <h3>Interior fit-out</h3>
+            <p>Make spaces work harder through thoughtful layouts, practical detailing and careful handover.</p>
+             <hr>
+        </div>
+    </div>
+    <div class="hedimg">
+        <h3>Made for the way you live</h3>
+        <h2>Some features that make us unique</h2>
+        <h4>A joined-up approach to the practical decisions behind every space.</h4>
+    </div>
+<div class="card">
+    <div class="card1">
+        <img src="img/planning-1440.avif" alt="">
+        <h3>Pre-construction</h3>
+        <p>A clear brief, measured information and an agreed sequence before work begins</p>
+       <a href="">Explore this service<i class="fa-solid fa-arrow-right-long"></i></a>
+    </div>
+    <div class="card1">
+        <img src="img/interior-1440.avif" alt="">
+        <h3>Building & renovation</h3>
+        <p>Coordinate structure, services and finishes around an achievable scope.</p>
+         <a href="">Explore this service<i class="fa-solid fa-arrow-right-long"></i></a>
+    </div>
+    <div class="card1">
+        <img src="img/tools-1440.avif" alt="">
+        <h3>Interior fit-out</h3>
+        <p>Make spaces work harder through thoughtful layouts, practical detailing and careful handover.</p>
+         <a href="">Explore this service<i class="fa-solid fa-arrow-right-long"></i></a>
+    </div>
+</div>
+<div class="scroll">
+    <div class="scroll1">
+        <img src="img/timber-2048.avif" alt="">
+        <div class="scroll2">
+            <h6>Structures</h6>
+            <h3>Timber connection</h3>
+            <p>A sheltered timber walkway brings a garden route together with careful junctions and a simple maintenance plan.</p>
+           <a href="">View project<i class="fa-solid fa-square-up-right"></i></a>
+        </div>
+
+    </div>
+    <div class="scroll1">
+        <img src="img/workspace-2048.avif" alt="">
+        <div class="scroll2">
+            <h6>Commercial</h6>
+            <h3>Shared workspace</h3>
+            <p>An open workplace fit-out combines flexible desks, quieter meeting areas and practical everyday circulation.</p>
+            <a href="">View project<i class="fa-solid fa-square-up-right"></i></a>
+        </div>
+    </div>
+    <div class="scroll1">
+        <img src="img/interior-1440.avif" alt="">
+        <div class="scroll2">
+            <h6>Renovation</h6>
+            <h3>Workshop renewal</h3>
+            <p>A phased workshop renovation gives an existing shell a clearer layout and a practical route to its next chapter.</p>
+            <a href="">View project<i class="fa-solid fa-square-up-right"></i></a>
+        </div>
+    </div>
+    <div class="scroll1">
+        <img src="img/room-2048.avif" alt="">
+        <div class="scroll2">
+            <h6>Residential</h6>
+            <h3>Room to grow</h3>
+            <p>A bright residential renovation creates a flexible room with durable finishes and room for everyday life.</p>
+            <a href="">View project<i class="fa-solid fa-square-up-right"></i></a>
+        </div>
+    </div>
+</div>
+<div class="ul">
+    <div class="ul2">
+
+        <ul>
+            <li>42</li>
+            <li>18</li>
+            <li>12</li>
+            <li>4</li>
+            <li>1</li>
+        </ul>
+    </div>
+<div class="ul1">
+    <ul>
+        <li>Projects completed</li>
+        <li>Years of experience</li>
+        <li>Specialist partners</li>
+        <li>Service disciplines</li>
+        <li>Dedicated coordinator</li>
+    </ul>
+</div>
+</div>
+<div class="hading">
+    <h5>Details that matter</h5>
+    <h2>Why choose a considered approach?</h2>
+    <p>The best results are built from small decisions made at the right time.</p>
+</div>
+<div class="table">
+
+    <table>
+        <tr>
+            <td><i class="fa-solid fa-clipboard-check"></i>
+                <h4>Clear scope</h4>
+                <p>Keep drawings, responsibilities and exclusions together so everyone can work from the same information.</p>
+        </td>
+        <td>
+            <i class="fa-regular fa-comments"></i>
+            <h4>Open communication</h4>
+            <p>Agree who makes decisions, when information is needed and how changes are recorded.</p>
+        </td>
+        <td>
+            <i class="fa-solid fa-layer-group"></i>
+            <h4>Practical detailing</h4>
+            <p>Think about access, maintenance, junctions and how materials will perform in everyday use.</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <i class="fa-regular fa-calendar-days"></i>
+            <h4>Realistic sequencing</h4>
+            <p>Allow time for surveys, approvals, procurement and work that needs to happen in order.</p>
+        </td>
+        <td>
+            <i class="fa-solid fa-helmet-safety"></i>
+            <h4>A cared-for site</h4>
+            <p>Discuss site access, separation from occupied areas and the daily routines that protect people.</p>
+        </td>
+        <td>
+            <i class="fa-solid fa-key"></i>
+            <h4>A useful handover</h4>
+            <p>Collect operating information, finish schedules and a clear route for reporting outstanding items.</p>
+        </td>
+    </tr>
+</table>
+</div>
+<div class="form">
+    <div class="h">
+        <h4>Start with a conversation</h4>
+        <h2>If you need, just drop us a line</h2>
+        <h3>Share what you want to change and where you are in the process.</h3>
+    </div>
+    <div class="fom">
+        <div class="row1">
+            <div class="item1">
+                Name
+                <input type="text">
+            </div>
+            <div class="item1">
+                Email
+                <input type="email">
+            </div>
+        </div>
+        <div class="row2">
+            Subject
+            <input type="text">
+        </div>
+        <div class="row3">
+            Tell us about your project
+            <textarea name="" id=""></textarea>
+        </div>
+        <div class="row4">
+            Project brief (optional)
+            <textarea name="" id=""></textarea>
+        </div>
+            
+        
+    </div>
+</div>
+<footer>
+    <ul>
+        <h3>Construction</h3>
+        <li>Good buildings begin with good conversations. Explore a considered approach to planning, making and caring for spaces.</li>
+        
+    </ul>
+    <ul>
+        <h3>Explore</h3>
+        <li>Our services</li>
+        <li>Selected projects</li>
+        <li>How we work</li>
+    </ul>
+    <ul>
+        <h3>Plan your project</h3>
+        <li>Create a brief</li>
+        <li>Before you build</li>
+        <li>Make an enquiry</li>
+    </ul>
+    <hr>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
